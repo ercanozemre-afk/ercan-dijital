@@ -9,7 +9,8 @@
 :root { --black:#0a0a0a; --dark:#111; --card:#181818; --gold:#c9a84c; --gold-light:#e8c96a; --gold-dim:rgba(201,168,76,.15); --white:#f5f5f5; --gray:#888; }
 html { scroll-behavior:smooth; }
 body { font-family:Montserrat,sans-serif; background:var(--black); color:var(--white); overflow-x:hidden; }
-nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1.2rem 6%; background:rgba(10,10,10,.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,168,76,.2); }
+.announcement-bar { position:fixed; top:0; left:0; right:0; z-index:102; height:40px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--black); display:flex; align-items:center; justify-content:center; font-size:.75rem; font-weight:700; letter-spacing:.5px; }
+nav { position:fixed; top:40px; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1.2rem 6%; background:rgba(10,10,10,.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,168,76,.2); }
 .logo { font-size:1.4rem; font-weight:900; letter-spacing:2px; color:var(--white); }
 .logo span { color:var(--gold); }
 .nav-links { display:flex; gap:2.5rem; list-style:none; }
@@ -64,8 +65,21 @@ footer p { font-size:.78rem; color:var(--gray); }
 footer .socials { display:flex; gap:1rem; }
 footer .socials a { width:36px; height:36px; border:1px solid rgba(201,168,76,.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85rem; color:var(--gray); text-decoration:none; transition:border-color .3s,color .3s; }
 footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
+#paketler { background:var(--dark); }
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:3rem; }
+.pricing-card { background:var(--card); border:1px solid rgba(201,168,76,.12); border-radius:8px; padding:2.5rem; display:flex; flex-direction:column; transition:border-color .3s,transform .3s,box-shadow .3s; }
+.pricing-card.featured { border-color:var(--gold); box-shadow:0 0 40px rgba(201,168,76,.12); }
+.pricing-card:hover { border-color:var(--gold); transform:translateY(-6px); box-shadow:0 20px 50px rgba(201,168,76,.15); }
+.pricing-card .badge { display:inline-block; background:var(--gold); color:var(--black); font-size:.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:.25rem .8rem; border-radius:50px; margin-bottom:1.2rem; align-self:flex-start; }
+.pricing-card h3 { font-size:1.3rem; font-weight:900; margin-bottom:.6rem; color:var(--white); }
+.pricing-card .desc { font-size:.88rem; color:var(--gray); line-height:1.8; margin-bottom:1.8rem; }
+.pricing-card ul { list-style:none; display:flex; flex-direction:column; gap:.7rem; margin-bottom:2rem; flex:1; }
+.pricing-card ul li { font-size:.85rem; color:var(--gray); display:flex; align-items:center; gap:.6rem; }
+.pricing-card ul li::before { content:"✓"; color:var(--gold); font-weight:700; flex-shrink:0; }
+.pricing-card .btn-primary { align-self:stretch; text-align:center; }
 @media (max-width:768px) { .nav-links{display:none;} .hero-stats{gap:2rem;} .services-header{flex-direction:column;align-items:flex-start;} .contact-wrapper{grid-template-columns:1fr;gap:3rem;} .form-row{grid-template-columns:1fr;} footer{flex-direction:column;text-align:center;} }
 </style></head><body>
+<div class="announcement-bar">🚀 Ücretsiz Danışmanlık İçin Hemen Arayın: 0555 123 45 67</div>
 <nav>
   <div class="logo">AL<span>&#304;</span>SA</div>
   <ul class="nav-links">
@@ -87,3 +101,55 @@ footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
   </div>
 </div></section>
 <div class="gold-line"></div>
+<section id="paketler">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">Fiyatlandırma</div>
+      <h2 class="section-title">Size Özel <span style="color:var(--gold)">Paketler</span></h2>
+    </div>
+    <p class="section-subtitle">İhtiyacınıza en uygun paketi seçin, fiyat için hemen teklif alın.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <span class="badge">Başlangıç</span>
+      <h3>Başlangıç Paketi</h3>
+      <p class="desc">Dijital dünyaya ilk adımını atmak isteyen markalar için temel hizmetler.</p>
+      <ul>
+        <li>Sosyal Medya Yönetimi</li>
+        <li>Logo & Kurumsal Kimlik Tasarımı</li>
+        <li>Web Sitesi Kurulumu</li>
+        <li>Aylık İçerik Planı</li>
+        <li>Temel SEO Ayarları</li>
+      </ul>
+      <a href="#iletisim" class="btn-primary">Teklif Al</a>
+    </div>
+    <div class="pricing-card featured">
+      <span class="badge">Profesyonel</span>
+      <h3>Profesyonel Paket</h3>
+      <p class="desc">Büyümek isteyen işletmeler için kapsamlı dijital pazarlama çözümleri.</p>
+      <ul>
+        <li>Sosyal Medya Reklamları (Meta & Google)</li>
+        <li>Kurumsal Web Sitesi Tasarımı</li>
+        <li>SEO & İçerik Optimizasyonu</li>
+        <li>Aylık Performans Raporu</li>
+        <li>E-Posta Pazarlama</li>
+        <li>Rakip Analizi</li>
+      </ul>
+      <a href="#iletisim" class="btn-primary">Teklif Al</a>
+    </div>
+    <div class="pricing-card">
+      <span class="badge">Kurumsal</span>
+      <h3>Kurumsal Paket</h3>
+      <p class="desc">Markanızı zirveye taşıyacak tam kapsamlı dijital yönetim hizmeti.</p>
+      <ul>
+        <li>Tam Dijital Pazarlama Yönetimi</li>
+        <li>E-Ticaret Sitesi Geliştirme</li>
+        <li>Özel Strateji & Danışmanlık</li>
+        <li>7/24 Öncelikli Destek</li>
+        <li>Influencer & PR Yönetimi</li>
+        <li>Haftalık Detaylı Raporlama</li>
+      </ul>
+      <a href="#iletisim" class="btn-primary">Teklif Al</a>
+    </div>
+  </div>
+</section>
