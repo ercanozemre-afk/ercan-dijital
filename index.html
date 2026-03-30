@@ -107,7 +107,7 @@ footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
   <div class="logo">AL<span>&#304;</span>SA</div>
   <ul class="nav-links">
     <li><a href="#anasayfa">Ana Sayfa</a></li>
-    <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#paketler">Hizmetler</a></li>
     <li><a href="#iletisim">&#304;leti&#351;im</a></li>
   </ul>
   <a href="#iletisim" class="btn-primary">Teklif Al</a>
@@ -116,7 +116,7 @@ footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
   <div class="hero-tag">Dijital D&#246;n&#252;&#351;&#252;m&#252;n Adresi</div>
   <h1>Markan&#305;z&#305; Dijitalde<br/><span class="gold">Zirveye Ta&#351;&#305;yoruz</span></h1>
   <p>Stratejik d&#252;&#351;&#252;nce, yarat&#305;c&#305; tasar&#305;m ve veri odakl&#305; sonu&#231;larla markan&#305;z&#305; bir ad&#305;m &#246;teye ta&#351;&#305;yoruz.</p>
-  <div class="btn-group"><a href="#hizmetler" class="btn-primary">Hizmetlerimiz</a><a href="#iletisim" class="btn-outline">Bize Ula&#351;&#305;n</a></div>
+  <div class="btn-group"><a href="#paketler" class="btn-primary">Hizmetlerimiz</a><a href="#iletisim" class="btn-outline">Bize Ula&#351;&#305;n</a></div>
   <div class="hero-stats">
     <div class="stat-item"><span class="stat-num">120+</span><span class="stat-label">Tamamlanan Proje</span></div>
     <div class="stat-item"><span class="stat-num">85+</span><span class="stat-label">Mutlu M&#252;&#351;teri</span></div>
@@ -314,31 +314,25 @@ footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
   </div>
 </div>
 <script>
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
+document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Gönderiliyor...';
-  const payload = {
-    ad:      document.getElementById('f-ad').value,
-    email:   document.getElementById('f-email').value,
-    sirket:  document.getElementById('f-sirket').value,
-    hizmet:  document.getElementById('f-hizmet').value,
-    mesaj:   document.getElementById('f-mesaj').value
-  };
-  try {
-    await fetch('https://hook.eu1.make.com/6mbvmogmhz11hhxwwejarmcy5l98bvc2', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    document.getElementById('contactForm').style.display = 'none';
-    const success = document.getElementById('formSuccess');
-    success.style.display = 'flex';
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = 'Gönder →';
-    alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-  }
+  const ad     = document.getElementById('f-ad').value;
+  const email  = document.getElementById('f-email').value;
+  const sirket = document.getElementById('f-sirket').value;
+  const hizmet = document.getElementById('f-hizmet').value;
+  const mesaj  = document.getElementById('f-mesaj').value;
+  const konu   = 'ALİSA Dijital Ajans – Teklif Talebi: ' + hizmet;
+  const govde  =
+    'Ad Soyad: ' + ad + '\n' +
+    'E-posta: ' + email + '\n' +
+    'Şirket: ' + sirket + '\n' +
+    'İlgilenilen Hizmet: ' + hizmet + '\n\n' +
+    'Mesaj:\n' + mesaj;
+  window.location.href =
+    'mailto:ercanozemre@gmail.com' +
+    '?subject=' + encodeURIComponent(konu) +
+    '&body=' + encodeURIComponent(govde);
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'flex';
 });
 </script>
