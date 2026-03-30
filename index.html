@@ -77,6 +77,17 @@ footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
 .pricing-card ul li { font-size:.85rem; color:var(--gray); display:flex; align-items:center; gap:.6rem; }
 .pricing-card ul li::before { content:"✓"; color:var(--gold); font-weight:700; flex-shrink:0; }
 .pricing-card .btn-primary { align-self:stretch; text-align:center; }
+#referanslar { background:var(--black); }
+.reviews-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-top:3rem; }
+.review-card { background:var(--card); border:1px solid rgba(201,168,76,.12); border-radius:8px; padding:2rem; display:flex; flex-direction:column; gap:1rem; transition:border-color .3s,transform .3s,box-shadow .3s; }
+.review-card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 16px 40px rgba(201,168,76,.1); }
+.review-stars { color:var(--gold); font-size:1rem; letter-spacing:2px; }
+.review-text { font-size:.88rem; color:var(--gray); line-height:1.85; flex:1; font-style:italic; }
+.review-text::before { content:'\201C'; font-size:1.8rem; color:var(--gold); line-height:0; vertical-align:-.5rem; margin-right:.2rem; font-style:normal; }
+.review-author { display:flex; align-items:center; gap:.9rem; border-top:1px solid rgba(201,168,76,.1); padding-top:1rem; }
+.review-avatar { width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-light)); display:flex; align-items:center; justify-content:center; font-size:1rem; font-weight:900; color:var(--black); flex-shrink:0; }
+.review-author-info strong { display:block; font-size:.88rem; font-weight:700; color:var(--white); }
+.review-author-info span { font-size:.75rem; color:var(--gold); letter-spacing:.5px; }
 @media (max-width:768px) { .nav-links{display:none;} .hero-stats{gap:2rem;} .services-header{flex-direction:column;align-items:flex-start;} .contact-wrapper{grid-template-columns:1fr;gap:3rem;} .form-row{grid-template-columns:1fr;} footer{flex-direction:column;text-align:center;} }
 </style></head><body>
 <div class="announcement-bar">🚀 Ücretsiz Danışmanlık İçin Hemen Arayın: 0555 123 45 67</div>
@@ -150,6 +161,84 @@ footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
         <li>Haftalık Detaylı Raporlama</li>
       </ul>
       <a href="#iletisim" class="btn-primary">Teklif Al</a>
+    </div>
+  </div>
+</section>
+<div class="gold-line"></div>
+<section id="referanslar">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">Referanslar</div>
+      <h2 class="section-title">Müşterilerimiz <span style="color:var(--gold)">Ne Diyor?</span></h2>
+    </div>
+    <p class="section-subtitle">Birlikte başardıklarımız hakkında müşterilerimizin görüşleri.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">ALİSA ile çalışmaya başladıktan sonra sosyal medya etkileşimlerimiz 3 ayda %240 arttı. Ekibin stratejik yaklaşımı ve yaratıcı içerikleri markamızı gerçekten zirveye taşıdı.</p>
+      <div class="review-author">
+        <div class="review-avatar">AK</div>
+        <div class="review-author-info">
+          <strong>Ahmet Kaya</strong>
+          <span>Kaya Yapı Grup</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Web sitemizin yeniden tasarımı ve SEO çalışmaları sonucunda organik trafiğimiz ikiye katlandı. Profesyonel yaklaşımları ve hızlı dönüşleri için teşekkürler.</p>
+      <div class="review-author">
+        <div class="review-avatar">SY</div>
+        <div class="review-author-info">
+          <strong>Selin Yıldız</strong>
+          <span>Yıldız Tekstil A.Ş.</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Google reklam kampanyalarımızı ALİSA yönetti ve reklam harcamalarımızın geri dönüşü 4 kat arttı. Bu kadar ölçülebilir bir sonuç beklemiyorduk, inanılmaz bir ekip.</p>
+      <div class="review-author">
+        <div class="review-avatar">MC</div>
+        <div class="review-author-info">
+          <strong>Murat Çelik</strong>
+          <span>Çelik Otomotiv</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">E-ticaret sitemizin kurulumundan sosyal medya yönetimine kadar her konuda yanımızdaydılar. İlk aydan itibaren satışlarımız belirgin şekilde arttı. Kesinlikle tavsiye ediyorum.</p>
+      <div class="review-author">
+        <div class="review-avatar">FD</div>
+        <div class="review-author-info">
+          <strong>Fatma Demir</strong>
+          <span>Demir Home Concept</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Kurumsal kimlik tasarımımız ve dijital dönüşüm sürecinde ALİSA'nın desteği paha biçilemezdi. Rakiplerimizden sıyrılmamızı sağlayan vizyoner bir ajans.</p>
+      <div class="review-author">
+        <div class="review-avatar">EŞ</div>
+        <div class="review-author-info">
+          <strong>Emre Şahin</strong>
+          <span>Şahin Lojistik</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Instagram ve TikTok hesaplarımızın yönetimi için ALİSA ile anlaştık. 6 ayda takipçi sayımız 2.000'den 28.000'e çıktı. Sonuçlar gerçekten konuşuyor.</p>
+      <div class="review-author">
+        <div class="review-avatar">NÖ</div>
+        <div class="review-author-info">
+          <strong>Nil Öztürk</strong>
+          <span>Bloom Güzellik Merkezi</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
