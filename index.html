@@ -59,6 +59,11 @@ input:focus,textarea:focus,select:focus { border-color:var(--gold); }
 textarea { resize:vertical; min-height:130px; }
 select option { background:var(--card); }
 form .btn-primary { align-self:flex-start; margin-top:.5rem; }
+.form-success { display:none; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:3rem 2rem; background:var(--card); border:1px solid var(--gold); border-radius:8px; text-align:center; }
+.form-success .success-icon { font-size:3rem; }
+.form-success h3 { font-size:1.4rem; font-weight:900; color:var(--white); }
+.form-success p { font-size:.92rem; color:var(--gray); }
+.btn-primary:disabled { opacity:.6; cursor:not-allowed; transform:none; }
 footer { background:var(--dark); border-top:1px solid rgba(201,168,76,.15); padding:2.5rem 6%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
 footer .logo { font-size:1.1rem; }
 footer p { font-size:.78rem; color:var(--gray); }
@@ -250,9 +255,90 @@ footer .socials a:hover { border-color:var(--gold); color:var(--gold); }
   </div>
 </section>
 <div class="gold-line"></div>
+<section id="iletisim">
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <div class="section-tag">İletişim</div>
+      <h2 class="section-title">Hemen <span style="color:var(--gold)">Teklif Alın</span></h2>
+      <p>Projenizi konuşmak için bize ulaşın. Ücretsiz danışmanlık randevusu alın, fark yaratmaya başlayalım.</p>
+      <div class="contact-detail">
+        <div class="icon">📞</div>
+        <div class="info"><span>Telefon</span><strong>0555 123 45 67</strong></div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">✉️</div>
+        <div class="info"><span>E-posta</span><strong>info@alisa.com.tr</strong></div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📍</div>
+        <div class="info"><span>Adres</span><strong>Levent, İstanbul, Türkiye</strong></div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">🕐</div>
+        <div class="info"><span>Çalışma Saatleri</span><strong>Pzt–Cum, 09:00–18:00</strong></div>
+      </div>
+    </div>
+    <div>
+      <form id="contactForm">
+        <div class="form-row">
+          <input type="text"  id="f-ad"     name="ad"     placeholder="Adınız Soyadınız" required />
+          <input type="email" id="f-email"  name="email"  placeholder="E-posta Adresiniz" required />
+        </div>
+        <input type="text" id="f-sirket" name="sirket" placeholder="Şirket / Marka Adı" />
+        <select id="f-hizmet" name="hizmet" required>
+          <option value="" disabled selected>Hizmet Seçin</option>
+          <option value="Web Tasarım & Geliştirme">Web Tasarım & Geliştirme</option>
+          <option value="Sosyal Medya Yönetimi">Sosyal Medya Yönetimi</option>
+          <option value="SEO & SEM">SEO & SEM</option>
+          <option value="Dijital Reklamcılık">Dijital Reklamcılık</option>
+          <option value="E-posta Pazarlama">E-posta Pazarlama</option>
+          <option value="Kurumsal Paket">Kurumsal Paket</option>
+          <option value="Diğer">Diğer</option>
+        </select>
+        <textarea id="f-mesaj" name="mesaj" placeholder="Mesajınız..." required></textarea>
+        <button type="submit" class="btn-primary" id="submitBtn">Gönder →</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h3>Mesajınız Alındı!</h3>
+        <p>En kısa sürede sizinle iletişime geçeceğiz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="gold-line"></div>
 <div class="map-section">
   <div class="map-wrapper">
     <div class="map-label">📍 İstanbul, Türkiye</div>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192698.46084239583!2d28.847681524277966!3d41.00499438697093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1711800000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </div>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Gönderiliyor...';
+  const payload = {
+    ad:      document.getElementById('f-ad').value,
+    email:   document.getElementById('f-email').value,
+    sirket:  document.getElementById('f-sirket').value,
+    hizmet:  document.getElementById('f-hizmet').value,
+    mesaj:   document.getElementById('f-mesaj').value
+  };
+  try {
+    await fetch('https://hook.eu1.make.com/6mbvmogmhz11hhxwwejarmcy5l98bvc2', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    document.getElementById('contactForm').style.display = 'none';
+    const success = document.getElementById('formSuccess');
+    success.style.display = 'flex';
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Gönder →';
+    alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+  }
+});
+</script>
