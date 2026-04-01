@@ -291,15 +291,14 @@
 
     .logos-header {
       text-align: center;
-      padding: 30px var(--space-xl) 22px;
+      padding: 28px var(--space-xl) 20px;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--muted);
-      opacity: 0.45;
     }
-    .logos-track-wrap { overflow: hidden; padding-bottom: 30px; }
+    .logos-track-wrap { overflow: hidden; padding-bottom: 28px; }
     .logos-track {
       display: flex;
       width: max-content;
@@ -308,24 +307,24 @@
     .logos-track:hover { animation-play-state: paused; }
     .logo-unit { display: flex; align-items: center; }
     .logo-name {
-      padding: 0 38px;
+      padding: 0 40px;
       font-family: 'Figtree', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--off-white);
-      opacity: 0.22;
-      transition: opacity 0.3s ease;
+      color: rgba(245,240,232,0.52);
+      transition: color 0.3s ease;
       cursor: default;
       user-select: none;
+      white-space: nowrap;
     }
-    .logo-name:hover { opacity: 0.6; }
+    .logo-name:hover { color: rgba(245,240,232,0.88); }
     .logo-sep {
       width: 5px; height: 5px;
       background: var(--gold);
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      opacity: 0.45;
+      opacity: 0.7;
       flex-shrink: 0;
     }
     @keyframes logosScroll {
